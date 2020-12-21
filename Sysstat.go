@@ -51,6 +51,26 @@ func main() {
 	memparagraph.TextStyle.Fg = ui.ColorWhite
 	memparagraph.BorderStyle.Fg = ui.ColorCyan
 
+	// Paragraph HostInfo
+	hostparagraph := widgets.NewParagraph()
+	hostparagraph.Title = "Host Info"
+	hostparagraph.SetRect(0, 8, int(x)/2, 20)
+	hostparagraph.TextStyle.Fg = ui.ColorWhite
+	hostparagraph.BorderStyle.Fg = ui.ColorCyan
+
+	// Paragraph UserStat
+	userparagraph := widgets.NewParagraph()
+	userparagraph.Title = "Users Statistics"
+	userparagraph.SetRect(int(x)/2, 8, int(x), 20)
+	userparagraph.TextStyle.Fg = ui.ColorWhite
+	userparagraph.BorderStyle.Fg = ui.ColorCyan
+
+	// Paragraph NICStat
+	nictable := widgets.NewTable()
+	nictable.SetRect(0, 20, int(x), 37)
+	nictable.TextStyle = ui.NewStyle(ui.ColorWhite)
+	nictable.BorderStyle = ui.NewStyle(ui.ColorCyan)
+
 	// tabpanel
 	Pane := widgets.NewTabPane()
 	Pane.Title = "Sysstat"
@@ -78,13 +98,15 @@ func main() {
 				GetCPUInfo(cpuparagraph)
 				GetMemInfo(memparagraph)
 				UpdateTime(timebar, timetick)
+				GetHostInfo(hostparagraph)
+				GetUserStat(userparagraph)
+				GetNICStat(nictable)
 				ui.Render(Pane, timebar)
 			case 1:
 				UpdateMemoryPercentage(memorygauge, swapgauge)
 				UpdateTime(timebar, timetick)
 				ui.Render(Pane, timebar)
 			}
-			//UpdateTime(p, timeticker)
 		}
 	}
 
