@@ -6,7 +6,7 @@ Another system management for *nix (Linux, Freebsd). For the moment, only Linux 
 
 Currently, Sysstat can obtain and display information about your system (network interface, information about OS, memory, CPU and Informations about connected users). Because a screenshot is better than an long speech :
 
-![Screenshot general info](demo/General Info.png)
+![Screenshot general info](demo/General_Info.png)
 
 The second panel is the monitoring panel, currently only memory and swap usage has been added :
 
